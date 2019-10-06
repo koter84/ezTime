@@ -10,7 +10,9 @@
 #endif
 
 // Compiles in NTP updating, timezoned fetching and caching 
-#define EZTIME_NETWORK_ENABLE
+#ifndef EZTIME_NETWORK_DISABLE
+	#define EZTIME_NETWORK_ENABLE
+#endif
 
 // Arduino Ethernet shields
 // #define EZTIME_ETHERNET
@@ -22,9 +24,9 @@
 // #define EZTIME_MAX_DEBUGLEVEL_INFO
 
 // Cache mechanism, either EEPROM or NVS, not both. (See README)
-#define EZTIME_CACHE_EEPROM
-// #define EZTIME_CACHE_NVS
-
+#ifndef EZTIME_CACHE_NVS
+	#define EZTIME_CACHE_EEPROM
+#endif
 
 // Warranty void if edited below this point...
 
